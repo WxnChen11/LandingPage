@@ -27,6 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_PORT = 000
+# EMAIL_USE_TLS = True
+
+#google displayunlockcaptcha 
+
 
 # Application definition
 
@@ -120,4 +128,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' #url where static files are located
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_env", "static_root") #dir where static files are collected
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    )
+
+MEDIA_URL = '/media/' #for dynamic elements such as profile pictures
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_env", "media_root")
