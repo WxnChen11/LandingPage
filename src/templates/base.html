@@ -14,6 +14,9 @@
     <title>{% block head_title %} MVP Landing {% endblock %}</title>
     {% include 'head_css.html' %}
 
+    <style>
+    {% block style %}{% endblock %}
+    </style>
 
   </head>
 
@@ -25,9 +28,6 @@
 
     {% block jumbotron %}
           <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        {% block jumbotron_content %}{% endblock %}
-      </div>
     {% endblock %}
 
     {% block content %}

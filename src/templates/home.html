@@ -1,29 +1,68 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+
 
 {% block head_title %} Welcome | {{block.super}} {% endblock %}
 
-{% block jumbotron_content %}
-	<h1>Hello There!</h1>
-	    <p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-	    <p>To see the difference between static and fixed top navbars, just scroll.</p>
-	    <p>
-	      <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
-	    </p>
+<style>	
+{% block style %}
+
+{% endblock %}
+</style>
+
+{% block jumbotron %}
+
+<div class="jumbotron">
+	<div class="row">
+		<div class="col-sm-6">
+			<h1>Zoodle</h1>
+			    <p>An online and mobile platform dedicated to connecting a community of care.</p>
+			    <p>
+			      <a class="btn btn-lg btn-primary" href="" role="button">Join Us &raquo;</a>
+			    </p>
+
+		</div>
+
+		<div class="col-sm-6" style="background-color:black;min-height:300px;">
+
+		</div>
+	</div>
+
+</div><!--  jumbo -->
+
 {% endblock %}
 
 {% block content %}
-	<h1> {{ title }} </h1>
 
-	{{ user }}
+<div class='row'>
+
+<div class='col-sm-3'>
+	<p class='lead text-align-center'>Convenient, Reliable Access</p>
+</div>
+
+<div class='col-sm-3'>
+	<p class='lead text-align-center'>Trust and Safety</p>
+</div>
+
+<div class='col-sm-3'>
+	<p class='lead text-align-center'>Peace of Mind</p>
+</div>
+
+<div class='col-sm-3'>
+	<p class='lead text-align-center'> {{ title }} </p>
 
 	<form method='POST' action=''>{% csrf_token %}
-	{{ form.as_p }}
+	{{ form|crispy }}
 
-	<input type='submit' value='Sign Up' >
+	<input class="btn btn-primary" type='submit' value='Sign Up' >
 
 	<!-- <input type='text'>
 
 	<input> -->
 
 	</form>
+
+</div>
+
+</div>
 {% endblock %}

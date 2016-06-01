@@ -39,12 +39,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #3rd party apps
+    'crispy_forms',
+
+    #my apps
     'newsletter',
 
 ]
@@ -125,6 +132,15 @@ USE_L10N = True
 USE_TZ = True
 
 
+### EMAIL ###
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'zoomzoodle@gmail.com'
+EMAIL_HOST_PASSWORD = 'wnpqrwcprryvmbfr'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
@@ -138,3 +154,12 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/' #for dynamic elements such as profile pictures
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_env", "media_root")
+
+### CRISPYFORMS ###
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+### DJANGO-REGISTRATION ###
+ACCOUNT_ACTIVATION_DAYS = 7
+LOGIN_REDIRECT_URL = '/'
+
+SITE_ID = 1

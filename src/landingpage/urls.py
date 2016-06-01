@@ -14,14 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url
+from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^$', 'newsletter.views.home', name='home'),
-    url(r'^contact/', 'newsletter.views.contact', name='contact')
+    url(r'^contact/', 'newsletter.views.contact', name='contact'),
+    url(r'^about/', 'landingpage.views.about', name='about'),
+    url(r'^accounts/', include('registration.backends.hmac.urls')),
+
+    url(r'^accounts/profile', 'landingpage.views.profile', name='profile'),
+    url(r'^admin/', admin.site.urls),
+
     #url(r'^newsletter/', 'newsletter.views.home' , name='newsletterhome')
 ]
 
