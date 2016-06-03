@@ -1,20 +1,34 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
-
+{% load staticfiles %}
 
 {% block head_title %} Welcome | {{block.super}} {% endblock %}
 
 <style>	
 {% block style %}
+.navbar-fixed-top {
+	margin-bottom: 0px !important;
+}
+.jumbotron {
+	background-image: url("{% static 'img/splash.jpg' %}");
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-position: center; 
+	color:#fff;
+}
 
+h1{
+	font-weight: bold;
+}
 {% endblock %}
 </style>
 
 {% block jumbotron %}
 
-<div class="jumbotron">
+<div class="jumbotron" id="main_jumbo">
+<div class="container">
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-sm-6 col-sm-offset-3 text-align-center">
 			<h1>Zoodle</h1>
 			    <p>An online and mobile platform dedicated to connecting a community of care.</p>
 			    <p>
@@ -23,11 +37,10 @@
 
 		</div>
 
-		<div class="col-sm-6" style="background-color:black;min-height:300px;">
-
-		</div>
+<!-- 		<div class="col-sm-6" style="background-color:black;min-height:300px;">
+		</div> -->
 	</div>
-
+</div><!-- container -->
 </div><!--  jumbo -->
 
 {% endblock %}
@@ -49,7 +62,7 @@
 </div>
 
 <div class='col-sm-3'>
-	<p class='lead text-align-center'> {{ title }} </p>
+	<p class='lead text-align-center'>Newsletter Sign-Up</p>
 
 	<form method='POST' action=''>{% csrf_token %}
 	{{ form|crispy }}
