@@ -25,7 +25,7 @@ SECRET_KEY = 'ol_7=@fx1(d73oeov^t3n_o_s1v3hv**)k!90a8yi35^d61hn7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.zoomzoodle.com', 'zoomzoodle.com', 'www.zoomzodle.ca', 'zoomzoodle.ca']
 
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_HOST_USER = ''
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     #3rd party apps
     'crispy_forms',
+    'registration',
 
     #my apps
     'newsletter',
@@ -146,10 +147,11 @@ EMAIL_USE_TLS = True
 
 STATIC_URL = '/static/' #url where static files are located
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_env", "static_root") #dir where static files are collected
+#STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_env", "static_root") #dir where static files are collected
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(os.path.dirname(BASE_DIR), "static_env", "static_root"),    
     )
 
 MEDIA_URL = '/media/' #for dynamic elements such as profile pictures
@@ -161,5 +163,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 ### DJANGO-REGISTRATION ###
 ACCOUNT_ACTIVATION_DAYS = 7
 LOGIN_REDIRECT_URL = '/'
+REGISTRATION_FORM = 'landingpage.forms.MyRegForm'
 
 SITE_ID = 1
